@@ -45,7 +45,7 @@ import static com.mobsandgeeks.keylines.Shared.PACKAGE_NAME;
  *
  * @author Ragunath Jawahar
  */
-class NotificationBroadcastReceiver extends BroadcastReceiver {
+class NotificationControlCenter extends BroadcastReceiver {
 
     // Actions
     private static final String ACTION_TOGGLE_GRID       = NAMESPACE_ACTION + ".TOGGLE_GRID";
@@ -92,7 +92,10 @@ class NotificationBroadcastReceiver extends BroadcastReceiver {
             }}
     );
 
-    // Attributes
+    /**
+     * // TODO 25/10/16 Make these values sane.
+     * These default values should be reflected in {@link org.lucasr.dspec.SpecDrawable}.
+     */
     private boolean showGrid = true;
     private boolean flipHorizontal = false;
     private boolean flipVertical = false;
@@ -117,8 +120,8 @@ class NotificationBroadcastReceiver extends BroadcastReceiver {
     }
 
     /**
-     * Registers the {@link NotificationBroadcastReceiver} with a corresponding {@link IntentFilter}
-     * to a {@link KeylinesService} instance.
+     * Registers the {@link NotificationControlCenter} (Broadcast Receiver) with a corresponding
+     * {@link IntentFilter} to a {@link KeylinesService} instance.
      *
      * @param keylinesService  Instance to which the broadcast receiver should be registered to.
      */
@@ -134,7 +137,7 @@ class NotificationBroadcastReceiver extends BroadcastReceiver {
     }
 
     /**
-     * Unregister this {@link NotificationBroadcastReceiver} from the registered
+     * Unregister this {@link NotificationControlCenter} (Broadcast Receiver) from the registered
      * {@link KeylinesService} instance.
      */
     void unregister() {
