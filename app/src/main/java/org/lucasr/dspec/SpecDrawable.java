@@ -38,6 +38,7 @@ public class SpecDrawable extends Drawable {
     private float density;
     private Spec spec;
 
+    private boolean showGrid = true;
     public SpecDrawable(Resources resources) {
         this.density = resources.getDisplayMetrics().density;
     }
@@ -92,6 +93,11 @@ public class SpecDrawable extends Drawable {
     public void setSpec(@Nullable Spec spec) {
         this.spec = spec;
         setColors(spec);
+        invalidateSelf();
+    }
+
+    public void showGrid(boolean show) {
+        this.showGrid = show;
         invalidateSelf();
     }
 

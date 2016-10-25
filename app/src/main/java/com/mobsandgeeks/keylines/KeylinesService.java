@@ -134,7 +134,7 @@ public class KeylinesService extends Service {
     }
 
     void showGrid(boolean show) {
-        // TODO 25/10/16 Show / hide
+        specDrawable.showGrid(show);
     }
 
     void flipHorizontal(boolean flip) {
