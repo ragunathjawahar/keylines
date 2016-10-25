@@ -1,8 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.mobsandgeeks.keylines"
         minSdkVersion 14
@@ -19,11 +24,31 @@ android {
     }
 }
 
+ext {
+    LEAK_CANARY_VERSION = '1.4'
+    RX_JAVA_VERSION = '1.1.10'
+    SUPPORT_LIBRARY_VERSION = '24.2.1'
+    TIMBER_VERSION = '4.3.0'
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // Support libraries
+    compile "com.android.support:appcompat-v7:${SUPPORT_LIBRARY_VERSION}"
+
+    // RxJava
+    compile "io.reactivex:rxjava:${RX_JAVA_VERSION}"
+
+    // Logging
+    compile "com.jakewharton.timber:timber:${TIMBER_VERSION}"
+
+    // LeakCanary
+    debugCompile "com.squareup.leakcanary:leakcanary-android:${LEAK_CANARY_VERSION}"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${LEAK_CANARY_VERSION}"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:${LEAK_CANARY_VERSION}"
+
+    // Testing
+    testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    testCompile 'junit:junit:4.12'
 }
