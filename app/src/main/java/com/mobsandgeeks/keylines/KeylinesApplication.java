@@ -20,7 +20,6 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.StrictMode;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.squareup.leakcanary.RefWatcher;
@@ -51,8 +50,7 @@ public class KeylinesApplication extends Application {
         Timber.plant(BuildConfig.DEBUG ? new Timber.DebugTree() : new ProductionTree());
     }
 
-    @NonNull
-    public static RefWatcher getRefWatcher(@NonNull Context context) {
+    public static RefWatcher getRefWatcher(Context context) {
         if (context instanceof KeylinesApplication) {
             return ((KeylinesApplication) context).refWatcher;
         } else {
