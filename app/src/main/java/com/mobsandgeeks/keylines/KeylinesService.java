@@ -63,7 +63,7 @@ public class KeylinesService extends Service {
     private View hostView;
     private WindowManager windowManager;
 
-    private NotificationBroadcastReceiver notificationBroadcastReceiver;
+    private NotificationControlCenter notificationControlCenter;
     private Pair<Notification, RemoteViews> notificationRemoteViewsPair;
     private NotificationManager notificationManager;
 
@@ -81,11 +81,11 @@ public class KeylinesService extends Service {
         windowManager.addView(hostView, getLayoutParams(true));
 
         // Broadcast Receiver for handling actions from the foreground service Notification
-        notificationBroadcastReceiver = new NotificationBroadcastReceiver();
-        notificationBroadcastReceiver.register(this);
+        notificationControlCenter = new NotificationControlCenter();
+        notificationControlCenter.register(this);
 
         // Start Foreground
-        notificationRemoteViewsPair = notificationBroadcastReceiver.createNotification(this);
+        notificationRemoteViewsPair = notificationControlCenter.createNotification(this);
         startForeground(NOTIFICATION_ID, notificationRemoteViewsPair.first);
     }
 
@@ -115,7 +115,7 @@ public class KeylinesService extends Service {
         }
 
         // Unregister broadcast receiver
-        notificationBroadcastReceiver.unregister();
+        notificationControlCenter.unregister();
 
         // Check for leaks
         KeylinesApplication.getRefWatcher(this).watch(this);
