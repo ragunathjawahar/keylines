@@ -121,7 +121,7 @@ public class SpecDrawable extends Drawable {
     }
 
     private void drawBaselineGrid(Grid baselineGrid, Canvas canvas, int width, int height) {
-        if (baselineGrid == null) {
+        if (!showGrid || baselineGrid == null) {
             return;
         }
 
