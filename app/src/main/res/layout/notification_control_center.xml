@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="ContentDescription">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/notification_remote_view_horizontal_margin"
+        android:layout_marginRight="@dimen/notification_remote_view_horizontal_margin"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:divider="@drawable/notification_button_divider">
+
+        <ImageButton
+            android:id="@+id/gridImageButton"
+            app:srcCompat="@drawable/ic_grid_on"
+            style="@style/NotificationButton" />
+
+        <ImageButton
+            android:id="@+id/flipHorizontalImageButton"
+            app:srcCompat="@drawable/ic_flip_horizontal"
+            style="@style/NotificationButton" />
+
+        <ImageButton
+            android:id="@+id/flipVerticalImageButton"
+            app:srcCompat="@drawable/ic_flip_vertical"
+            style="@style/NotificationButton" />
+
+        <ImageButton
+            android:id="@+id/visibilityImageButton"
+            app:srcCompat="@drawable/ic_visibility_on"
+            style="@style/NotificationButton" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/notification_remote_view_horizontal_margin"
+        android:layout_marginRight="@dimen/notification_remote_view_horizontal_margin"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:divider="@drawable/notification_button_divider">
+
+        <ImageButton
+            android:id="@+id/exitImageButton"
+            app:srcCompat="@drawable/ic_exit"
+            style="@style/NotificationButton" />
+    </LinearLayout>
+
+</RelativeLayout>
