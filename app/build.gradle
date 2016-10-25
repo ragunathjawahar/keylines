@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.mobsandgeeks.keylines"
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 22 // Shying away from runtime permissions
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
