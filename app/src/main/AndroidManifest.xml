@@ -20,6 +20,13 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".KeylinesService"
+            android:process="io.mobsgeeks.keylines.Service"
+            android:enabled="true"
+            android:singleUser="true"
+            android:exported="false">
+        </service>
+
     </application>
 
 </manifest>

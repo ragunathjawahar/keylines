@@ -90,7 +90,7 @@ public class SpecDrawable extends Drawable {
     }
 
     public void setSpec(@Nullable Spec spec) {
-        this.spec = spec;
+        this.spec = spec == null ? Spec.builder().build() : spec;
         setColors(spec);
         invalidateSelf();
     }
