@@ -90,12 +90,15 @@ public class SpecDrawable extends Drawable {
     }
 
     public void setSpec(@Nullable Spec spec) {
-        this.spec = spec == null ? Spec.builder().build() : spec;
+        this.spec = spec;
         setColors(spec);
         invalidateSelf();
     }
 
-    private void setColors(Spec spec) {
+    private void setColors(@Nullable Spec spec) {
+        if (spec == null) {
+            return;
+        }
         Grid.setColor(spec.baselineGridColor());
         Keyline.setColor(spec.keylineColor());
         Spacing.setColor(spec.spacingColor());

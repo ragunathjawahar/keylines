@@ -16,7 +16,6 @@
 
 package com.mobsandgeeks.keylines;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -29,11 +28,6 @@ public class KeylinesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keylines);
-
-        // TODO 25/10/16 Remove all
-        Intent intent = new Intent(KeylinesService.ACTION_SHOW);
-        intent.putExtra(KeylinesService.EXTRA_SPEC, "{ 'baselineGridCellSize': 8 }");
-        sendBroadcast(intent);
     }
 
     @Override
