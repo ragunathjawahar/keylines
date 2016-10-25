@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mobsandgeeks.keylines">
+
+    <!--
+        This issue sucked up way too much of my time. Link for tracking and future reference.
+        https://code.google.com/p/android/issues/detail?id=193679
+    -->
+    <application
+        android:label="@string/app_name"
+        android:name=".DebugApplication"
+        tools:replace="android:name" />
+
+</manifest>

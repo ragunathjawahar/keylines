@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Keylines (D)</string>
+
+    <string name="leak_canary_display_activity_label">Keylines (D) Leaks</string>
+</resources>

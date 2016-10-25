@@ -16,23 +16,20 @@
 
 package com.mobsandgeeks.keylines;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
+
+import timber.log.Timber;
 
 /**
  * @author Ragunath Jawahar
  */
-public class KeylinesActivity extends AppCompatActivity {
+public class DebugApplication extends KeylinesApplication {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_keylines);
+    protected RefWatcher installLeakCanary() {
+        Timber.d("Leak Canary INSTALLED.");
+        return LeakCanary.install(this);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        KeylinesApplication.getRefWatcher(this).watch(this);
-    }
 }
