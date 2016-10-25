@@ -57,7 +57,6 @@ public class SpecParser {
 
     // Value functions
     private static final JSONFunction<Integer> INT_FUNCTION = JSONObject::getInt;
-    private static final JSONFunction<Boolean> BOOLEAN_FUNCTION = JSONObject::getBoolean;
 
     // Error message
     private static final String JSON_VALUE_PARSE_ERROR =

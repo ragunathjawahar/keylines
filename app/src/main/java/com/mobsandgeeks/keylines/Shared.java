@@ -6,7 +6,7 @@ package com.mobsandgeeks.keylines;
 interface Shared {
 
     String PACKAGE_NAME = KeylinesApplication.class.getPackage().getName();
-    String NAMESPACE_ACTION = PACKAGE_NAME + ".action";
-    String NAMESPACE_EXTRA = PACKAGE_NAME + ".extra";
+    String NAMESPACE_ACTION = PACKAGE_NAME + ".intent.action";
+    String NAMESPACE_EXTRA = PACKAGE_NAME + ".intent.extra";
 
 }

@@ -91,13 +91,15 @@ public class KeylinesService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (ACTION_SHOW.equals(intent.getAction())) {
+        String action = intent.getAction();
+
+        if (ACTION_SHOW.equals(action)) {
             String payload = intent.getExtras().getString(EXTRA_SPEC);
             show(payload);
-        } else if (ACTION_STOP.equals(intent.getAction())) {
+        } else if (ACTION_STOP.equals(action)) {
             stop();
-        } else {
-            throw new UnsupportedOperationException("Unknown action: " + intent.getAction());
+        } else if (action != null) {
+            throw new UnsupportedOperationException("Unknown action: " + action);
         }
 
         return START_NOT_STICKY;

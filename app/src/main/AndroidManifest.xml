@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mobsandgeeks.keylines">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:name=".KeylinesApplication"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +23,7 @@
         </activity>
 
         <service android:name=".KeylinesService"
-            android:process="io.mobsgeeks.keylines.Service"
+            android:process="com.mobsandgeeks.keylines.Service"
             android:enabled="true"
             android:singleUser="true"
             android:exported="false">
