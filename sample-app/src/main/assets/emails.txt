@@ -1,17 +1,18 @@
-Resorts World Sentosa | Jack is back at Halloween Horror Nights 6! | Along with his loyal gang of deranged disciples, he's on the hunt for his next batch of killer acts.
-Jenn from Indix | Did You Forget About Augmented Reality? | Hi Ragunath, You know what's a great thing to do on Friday? Sign up for a Webminar! | ✓
-Manning Publications | Deep Learning, Elm, Kubernetes, and other summer reading | Save up to 50% on your entire purchase. Applies to all eBooks, pBooks and MEAPs.
-Ashwin Ramasamy | Why do chatbots suck? | We handpick elite dev shops for you! If chatbots are the new apps, then wouldn't we expect to find them in app store?
-Google Alerts | Google Alert - Android | SwiftKey for Android is now powered by a neural network | ✓
-Tom from Khan Academy | Help us help you | Hi Ragunath Jawahar, Khan Academy can help you anytime anywhere.
-TechSmith | Big Camtasia Announcement! | Don't miss the Big Camtasia Reveal on Tuesday, September 20th at 2 p.m. EDT
-Google Alerts | Google Alert - iPhone | Apple says initial quantities of iPhone 7 Plus sold out
-Bushra Azhar | Zipping through trees and business (plus a Tarzan battling a wedgie) | I am in England this week and we just had our first zipline experience
-Medium Daily Digest | "Designing in color" published in Free Code Camp by Jonathan Z. White | Your complete guide in design by Jonathan Z. White | ✓
-Codementor | Request for Android, Android Studio, $60/hr. I want to learn Android programming. | New Request about Android Studio, Android on Codementor!
-Joel from Egghead | How to use RxJS Subjects | Hey Ragunath Jawahar, If you're learning RxJS, you will quickly encounter subjects. Subjects are (at a simplistic level) event dispatchers for Observables.
-HackerRank Team | Curious To See How Well You Code? | Join World CodeSprint 7 on Saturday, September 24th, beginning at 9:30pm IST
-Brennan Dunn | Here's the final schedule and speaker list for #DYFConf US | Well, first off... putting a face and a voice on an email address is always a good thing. | ✓
-Defold | Scratch that itch | Create, inspire, delight with the collaborative game engine Defold.
-HDFC Mutual Fund | Folio 37281647 - Processing of Purchase in HDFC Mutual Fund | Dear Investor, The account statement shall be sent to you by email separately.
+The Droidcon 2016 Team | Droidcon 2016 Update - App Clinics, Keynotes, Party, Droidcon Hack & more | With Droidcon London 2016 just a few weeks away, we thought to send you a quick update on what's in store.
+Zeplin Crew | Pop out screens to compare, Limited Halloween stickers | Ladies and gentlemen, sit back and enjoy the news! | ✓
 Google Alerts | Google Alert - Cloud Computing | Oracle Profits Rise on Cloud Computing Growth - Wall Street Journal
+Defold | Scratch that itch | Create, inspire, delight with the collaborative game engine Defold.
+Fizzle | 10 Time Management Tips Every Entrepreneur  Needs to Know | When we ask entrepreneurs what they are struggling with, it's incredibly common to hear, "I want to get more done."
+Android Weekly | Android Weekly #228 | Android 7.1 Static Shortcut - Here's a quick example on how to add a static shortcut to an app.
+Twitter | Yigit Boyar Tweeted: Nice article. Shades of MVVM | @jakewharton, @chethaase, @kaushikgopal, @KellyShuster
+Medium Daily Digest | "Designing in color" published in Free Code Camp by Jonathan Z. White | Your complete guide in design by Jonathan Z. White | ✓
+Resorts World Sentosa | Jack is back at Halloween Horror Nights 6! | Along with his loyal gang of deranged disciples, he's on the hunt for his next batch of killer acts.
+Lyft | Account Update: $100 Added | You've got $100 Take $5 off each of your first 20 rides. Take a Ride
+Google Alerts | Google Alert - Android | SwiftKey for Android is now powered by a neural network | ✓
+Joel from Egghead | How to use RxJS Subjects | Hey Ragunath Jawahar, If you're learning RxJS, you will quickly encounter subjects. Subjects are (at a simplistic level) event dispatchers for Observables.
+Google Alerts | Google Alert - iPhone | Apple says initial quantities of iPhone 7 Plus sold out
+Mozilla | Teaching the Web to Promote Youth Civic Engagement | Empower youth to add their voice to important civic discussions. | ✓
+Fitbit | Your weekly progress report from Fitbit! | Hi Ragunath J., here are your weekly stats.
+Ello | An interview with Pauliina Maus | Take one look at her impressive portfolio and you'll have a hard time believing that Finnish graphic designer Pauliina Maus is still in high school.
+Tom from Khan Academy | Help us help you | Hi Ragunath Jawahar, Khan Academy can help you anytime anywhere.
+Codementor | Request for Android, Android Studio, $120/hr. I want to learn Android programming. | New Request about Android Studio, Android on Codementor!
