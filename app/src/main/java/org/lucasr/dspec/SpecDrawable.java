@@ -143,17 +143,13 @@ public class SpecDrawable extends Drawable {
         }
 
         canvas.save();
-
         if (flipHorizontal) { // Flip H
             canvas.scale(-1, 1, width / 2, 0);
         }
-
         if (flipVertical) { // Flip V
             canvas.scale(1, -1, 0, height / 2);
         }
-
         baselineGrid.draw(canvas, density, width, height);
-
         canvas.restore();
     }
 
