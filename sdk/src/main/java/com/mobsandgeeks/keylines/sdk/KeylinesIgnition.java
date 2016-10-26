@@ -17,20 +17,30 @@
 package com.mobsandgeeks.keylines.sdk;
 
 import android.app.Application;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.ProviderInfo;
+import android.os.IBinder;
+import android.util.Log;
+
+import static com.mobsandgeeks.keylines.sdk.Shared.PACKAGE_NAME;
 
 /**
- * An empty {@link android.content.ContentProvider} that initializes the SDK for a host
- * application.
+ * An empty {@link android.content.ContentProvider} that initializes the SDK for a host application
+ * and facilitates the Keylines app to listen for "heart-beats". If the host application is killed
+ * then the Keylines app will stop displaying the spec.
  *
  * <p>Idea from the <a href="https://medium.com/@andretietz/auto-initialize-your-android-library-2349daf06920#.tmhvd7swr">medium article</a> by André Tietz.</p>.
  *
  * @author Ragunath Jawahar
  */
-public final class KeylinesIgnition extends ContentProviderAdapter {
+public final class KeylinesIgnition extends ContentProviderAdapter implements ServiceConnection {
 
+    private static final String TAG = KeylinesIgnition.class.getName();
     private static final String DEFAULT_AUTHORITY = ".ignition";
+    private static final String STETHOSCOPE_SERVICE = PACKAGE_NAME + ".exposed.StethoscopeService";
 
     @SuppressWarnings("ConstantConditions")
     @Override
@@ -46,7 +56,30 @@ public final class KeylinesIgnition extends ContentProviderAdapter {
                     + "application's 'build.gradle' file.";
             throw new IllegalStateException(message);
         }
+
+        bindToService(context);
         super.attachInfo(context, info);
+    }
+
+    @Override
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        Log.d(TAG, "Connected to Keylines app.");
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName componentName) {
+        Log.d(TAG, "Disconnected from Keylines app.");
+    }
+
+    private void bindToService(Context context) {
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName(PACKAGE_NAME, STETHOSCOPE_SERVICE));
+
+        try {
+            context.bindService(intent, this, Context.BIND_AUTO_CREATE);
+        } catch (SecurityException ignored) {
+            Log.e(TAG, "Unable to bind to " + STETHOSCOPE_SERVICE, ignored);
+        }
     }
 
 }
