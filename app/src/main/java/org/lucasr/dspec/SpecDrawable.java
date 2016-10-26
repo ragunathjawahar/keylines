@@ -40,7 +40,7 @@ public class SpecDrawable extends Drawable {
     private Spec spec;
 
     /**
-     * Defaults as in {@link com.mobsandgeeks.keylines.NotificationBroadcastReceiver}.
+     * Defaults as in {@link com.mobsandgeeks.keylines.NotificationControlCenter}.
      */
     private boolean showGrid = true;
     private boolean flipHorizontal = false;
