@@ -221,7 +221,7 @@ class NotificationControlCenter extends BroadcastReceiver {
 
     private Notification buildNotification(Context context, RemoteViews contentView) {
         @DrawableRes int smallIcon = visible
-                ? R.drawable.ic_visibility_on : R.drawable.ic_visibility_off;
+                ? R.drawable.ic_small_icon_on : R.drawable.ic_small_icon_off;
 
         Notification notification = new NotificationCompat.Builder(context)
                 .setSmallIcon(smallIcon)
