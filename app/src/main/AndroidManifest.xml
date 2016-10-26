@@ -31,7 +31,8 @@
             android:exported="false"/>
 
         <receiver android:name=".SdkBroadcastReceiver"
-            android:permission="com.mobsgeeks.keylines.permission.USE_KEYLINES"
+            android:permission="com.mobsandgeeks.keylines.permission.USE_KEYLINES"
+            android:enabled="true"
             android:exported="true">
 
             <intent-filter>
