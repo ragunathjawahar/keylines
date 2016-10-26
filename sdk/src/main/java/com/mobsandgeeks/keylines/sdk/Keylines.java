@@ -99,6 +99,11 @@ public class Keylines {
     }
 
     private void spec(Context context, Object theAnnotatedOne) {
+        if (this.resources == null) {
+            String message = "Keylines must be initialized using the 'init(Application)' method.";
+            throw new IllegalStateException(message);
+        }
+
         if (context == null) {
             String message = "Unable to retrieve 'context' from "
                     + theAnnotatedOne.getClass().getSimpleName();
