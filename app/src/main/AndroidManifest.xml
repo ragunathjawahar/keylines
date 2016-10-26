@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mobsandgeeks.keylines">
 
-    <permission android:name="io.mobsgeeks.keylines.permission.USE_KEYLINES" />
+    <permission android:name="com.mobsandgeeks.keylines.permission.USE_KEYLINES" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
