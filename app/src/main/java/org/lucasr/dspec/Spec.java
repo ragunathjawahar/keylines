@@ -26,7 +26,7 @@ import java.util.List;
  * @author Lucas Rocha {@literal <lucasr@lucasr.org>}
  * @author Ragunath Jawahar {@literal <rj@mobsandgeeks.com>}
  */
-public class Spec {
+class Spec {
 
     // Baseline Grid
     private final Grid baselineGrid;
