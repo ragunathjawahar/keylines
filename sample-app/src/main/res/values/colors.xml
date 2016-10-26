@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#DB4437</color>
+    <color name="colorPrimaryDark">#B93221</color>
+    <color name="colorAccent">#DB4437</color>
+
+    <!-- List Item -->
+    <color name="list_item_divider">#C7C7C7</color>
+</resources>

@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-package com.mobsandgeeks.keylines;
+package com.mobsandgeeks.keylines.sample;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
- * @author Ragunath Jawahar
+ * To work on unit tests, switch the Test Artifact in the Build Variants view.
  */
-interface Shared {
+public class ExampleUnitTest {
 
-    String PACKAGE_NAME = "com.mobsandgeeks.keylines";
-    String NAMESPACE_ACTION = PACKAGE_NAME + ".intent.action";
-    String NAMESPACE_EXTRA = PACKAGE_NAME + ".intent.extra";
-
+    @Test
+    public void addition_isCorrect() throws Exception {
+        assertEquals(4, 2 + 2);
+    }
 }

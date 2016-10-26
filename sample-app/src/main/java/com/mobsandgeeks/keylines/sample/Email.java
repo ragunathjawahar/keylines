@@ -14,15 +14,23 @@
  * limitations under the License.
  */
 
-package com.mobsandgeeks.keylines;
+package com.mobsandgeeks.keylines.sample;
 
 /**
  * @author Ragunath Jawahar
  */
-interface Shared {
+class Email {
 
-    String PACKAGE_NAME = "com.mobsandgeeks.keylines";
-    String NAMESPACE_ACTION = PACKAGE_NAME + ".intent.action";
-    String NAMESPACE_EXTRA = PACKAGE_NAME + ".intent.extra";
+    final String sender;
+    final String subject;
+    final String summary;
+    final boolean read;
+
+    Email(String sender, String subject, String summary, boolean read) {
+        this.sender = sender;
+        this.subject = subject;
+        this.summary = summary;
+        this.read = read;
+    }
 
 }

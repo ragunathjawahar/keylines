@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-package com.mobsandgeeks.keylines;
+package com.mobsandgeeks.keylines.sample;
+
+import android.app.Application;
+import android.test.ApplicationTestCase;
 
 /**
- * @author Ragunath Jawahar
+ * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-interface Shared {
+public class ApplicationTest extends ApplicationTestCase<Application> {
 
-    String PACKAGE_NAME = "com.mobsandgeeks.keylines";
-    String NAMESPACE_ACTION = PACKAGE_NAME + ".intent.action";
-    String NAMESPACE_EXTRA = PACKAGE_NAME + ".intent.extra";
+    public ApplicationTest() {
+        super(Application.class);
+    }
 
 }
