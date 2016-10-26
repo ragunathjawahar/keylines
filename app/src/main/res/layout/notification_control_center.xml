@@ -31,7 +31,7 @@
 
         <ImageButton
             android:id="@+id/flipVerticalImageButton"
-            app:srcCompat="@drawable/ic_flip_vertical"
+            app:srcCompat="@drawable/ic_flip_v_off"
             style="@style/NotificationButton" />
 
         <ImageButton

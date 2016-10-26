@@ -61,7 +61,7 @@ class NotificationControlCenter extends BroadcastReceiver {
     private static final SparseIntArray ID_DEFAULT_ICON_ARRAY = new SparseIntArray() {{
         put(R.id.gridImageButton,               R.drawable.ic_grid_on);
         put(R.id.flipHorizontalImageButton,     R.drawable.ic_flip_h_off);
-        put(R.id.flipVerticalImageButton,       R.drawable.ic_flip_vertical); // TODO 25/10/16 OFF
+        put(R.id.flipVerticalImageButton,       R.drawable.ic_flip_v_off);
         put(R.id.visibilityImageButton,         R.drawable.ic_visibility_on);
         put(R.id.exitImageButton,               R.drawable.ic_exit);
     }};
@@ -181,7 +181,7 @@ class NotificationControlCenter extends BroadcastReceiver {
 
     private void toggleFlipV() {
         @DrawableRes int iconRes = (flipVertical = !flipVertical)
-                ? R.drawable.ic_flip_vertical : R.drawable.ic_flip_vertical; // TODO 25/10/16 Icon
+                ? R.drawable.ic_flip_v_on : R.drawable.ic_flip_v_off;
         keylinesService.flipVertical(flipVertical);
         keylinesService.updateNotificationIcon(R.id.flipVerticalImageButton, iconRes);
     }
