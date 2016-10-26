@@ -26,7 +26,7 @@
 
         <ImageButton
             android:id="@+id/flipHorizontalImageButton"
-            app:srcCompat="@drawable/ic_flip_horizontal"
+            app:srcCompat="@drawable/ic_flip_h_off"
             style="@style/NotificationButton" />
 
         <ImageButton
