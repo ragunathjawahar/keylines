@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package com.mobsandgeeks.keylines;
+package com.mobsandgeeks.keylines.exposed;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+
+import com.mobsandgeeks.keylines.KeylinesService;
 
 import static com.mobsandgeeks.keylines.KeylinesService.ACTION_SHOW;
 import static com.mobsandgeeks.keylines.KeylinesService.ACTION_STOP;

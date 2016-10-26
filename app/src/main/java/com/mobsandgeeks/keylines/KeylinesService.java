@@ -52,11 +52,11 @@ public class KeylinesService extends Service {
     private static final int NOTIFICATION_ID = 0X524A; // Being 'Narcissistic'
 
     // Actions
-    static final String ACTION_SHOW = NAMESPACE_ACTION + ".SHOW";
-    static final String ACTION_STOP = NAMESPACE_ACTION + ".STOP";
+    public static final String ACTION_SHOW = NAMESPACE_ACTION + ".SHOW";
+    public static final String ACTION_STOP = NAMESPACE_ACTION + ".STOP";
 
     // Extras
-    static final String EXTRA_SPEC = NAMESPACE_EXTRA + ".SPEC";
+    public static final String EXTRA_SPEC = NAMESPACE_EXTRA + ".SPEC";
 
     // Attributes
     private SpecDrawable specDrawable;

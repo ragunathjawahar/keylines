@@ -30,7 +30,7 @@
             android:singleUser="true"
             android:exported="false"/>
 
-        <receiver android:name=".SdkBroadcastReceiver"
+        <receiver android:name=".exposed.SdkBroadcastReceiver"
             android:permission="com.mobsandgeeks.keylines.permission.USE_KEYLINES"
             android:enabled="true"
             android:exported="true">
