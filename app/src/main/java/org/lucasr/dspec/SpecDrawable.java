@@ -131,17 +131,15 @@ public class SpecDrawable extends Drawable {
             return;
         }
 
-        // Flip
-        if (flipHorizontal) {
+        canvas.save();
+
+        if (flipHorizontal) { // Flip H
             canvas.scale(-1, 1, width / 2, height / 2);
         }
 
         baselineGrid.draw(canvas, density, width, height);
 
-        // Unflip (is that even a word)
-        if (flipHorizontal) {
-            canvas.scale(-1, 1, width / 2, height / 2);
-        }
+        canvas.restore();
     }
 
     private void drawKeylines(List<Keyline> keylines, Canvas canvas, int width, int height) {
