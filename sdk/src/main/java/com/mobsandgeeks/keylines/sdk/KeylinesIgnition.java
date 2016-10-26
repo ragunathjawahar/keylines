@@ -45,7 +45,7 @@ public final class KeylinesIgnition extends ContentProviderAdapter implements Se
     @SuppressWarnings("ConstantConditions")
     @Override
     public boolean onCreate() {
-        new Keylines(((Application) getContext()));
+        Keylines.getInstance().init(((Application) getContext()));
         return false;
     }
 

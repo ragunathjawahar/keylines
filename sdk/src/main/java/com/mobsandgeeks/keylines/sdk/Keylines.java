@@ -19,8 +19,11 @@ package com.mobsandgeeks.keylines.sdk;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
+import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
 import android.util.Log;
@@ -36,7 +39,7 @@ import static com.mobsandgeeks.keylines.sdk.Shared.NAMESPACE_EXTRA;
 /**
  * @author Ragunath Jawahar
  */
-class Keylines {
+public class Keylines {
 
     // Constants
     private static final String TAG = Keylines.class.getSimpleName();
@@ -49,13 +52,60 @@ class Keylines {
     private static final String EXTRA_SPEC = NAMESPACE_EXTRA + ".SPEC";
 
     // Attributes
-    private Application application;
     private Resources resources;
 
-    Keylines(final Application application) {
-        this.application = application;
+    private static class SingletonHolder {
+        static final Keylines INSTANCE = new Keylines();
+    }
+
+    /**
+     * Returns an initialized  singleton instance of the {@link Keylines}.
+     *
+     * @return An initialized {@link Keylines} instance.
+     */
+    public static Keylines getInstance() {
+        return SingletonHolder.INSTANCE;
+    }
+
+    /**
+     * Specs a {@link Fragment}, if annotated with the {@link DesignSpec} annotation.
+     *
+     * @param fragment A fragment.
+     */
+    public void spec(@NonNull Fragment fragment) {
+        spec(fragment.getActivity(), fragment);
+    }
+
+    /**
+     * Specs a {@link android.support.v4.app.Fragment}, if annotated with the {@link DesignSpec}
+     * annotation.
+     *
+     * @param supportFragment A fragment.
+     */
+    public void spec(@NonNull android.support.v4.app.Fragment supportFragment) {
+        spec(supportFragment.getActivity(), supportFragment);
+    }
+
+    void init(Application application) {
+        if (this.resources != null) {
+            throw new IllegalStateException("Keylines has to be initialized only once.");
+        }
         this.resources = application.getResources();
         spyOnActivities(application);
+    }
+
+    private Keylines() {
+        // Default private constructor
+    }
+
+    private void spec(Context context, Object theAnnotatedOne) {
+        if (context == null) {
+            String message = "Unable to retrieve 'context' from "
+                    + theAnnotatedOne.getClass().getSimpleName();
+            throw new NullPointerException(message);
+        }
+
+        showSpec(context, theAnnotatedOne.getClass());
     }
 
     /**
@@ -87,7 +137,7 @@ class Keylines {
      * @param application The {@link Application} instance of the host application.
      */
     private void spyOnActivities(final Application application) {
-        this.application.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacksAdapter() {
+        application.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacksAdapter() {
 
             private AtomicInteger activityCounter = new AtomicInteger();
 
@@ -95,7 +145,7 @@ class Keylines {
             public void onActivityStarted(Activity activity) {
                 // Show spec
                 Class<? extends Activity> activityClass = activity.getClass();
-                showSpec(activityClass);
+                showSpec(activity, activityClass);
 
                 // Increment counter
                 activityCounter.incrementAndGet();
@@ -112,12 +162,12 @@ class Keylines {
         });
     }
 
-    private void showSpec(Class<?> hostClass) {
+    private void showSpec(Context context, Class<?> hostClass) {
         DesignSpec designSpec = hostClass.getAnnotation(DesignSpec.class);
         if (designSpec != null) {
             String jsonSpec = getJsonSpec(hostClass.getName(), designSpec.value()); // TODO 26/10/16 Validate JSON
             if (jsonSpec != null) {
-                send(jsonSpec);
+                send(context, jsonSpec);
             }
         } else {
             String message = String.format("%s is not annotated with @%s",
@@ -158,10 +208,10 @@ class Keylines {
         return stringBuilder.toString();
     }
 
-    private void send(String spec) {
+    private void send(Context context, String spec) {
         Intent intent = new Intent(ACTION_SHOW);
         intent.putExtra(EXTRA_SPEC, spec);
-        application.sendBroadcast(intent);
+        context.sendBroadcast(intent);
     }
 
 }
