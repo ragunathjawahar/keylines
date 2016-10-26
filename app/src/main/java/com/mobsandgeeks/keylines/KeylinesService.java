@@ -138,7 +138,7 @@ public class KeylinesService extends Service {
     }
 
     void flipHorizontal(boolean flip) {
-        // TODO 25/10/16 Flip
+        specDrawable.flipHorizontal(flip);
     }
 
     void flipVertical(boolean flip) {

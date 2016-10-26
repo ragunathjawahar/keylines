@@ -39,6 +39,7 @@ public class SpecDrawable extends Drawable {
     private Spec spec;
 
     private boolean showGrid = true;
+    private boolean flipHorizontal = false;
     public SpecDrawable(Resources resources) {
         this.density = resources.getDisplayMetrics().density;
     }
@@ -101,6 +102,11 @@ public class SpecDrawable extends Drawable {
         invalidateSelf();
     }
 
+    public void flipHorizontal(boolean flip) {
+        this.flipHorizontal = flip;
+        invalidateSelf();
+    }
+
     private void setColors(@Nullable Spec spec) {
         if (spec == null) {
             return;
@@ -125,7 +131,17 @@ public class SpecDrawable extends Drawable {
             return;
         }
 
+        // Flip
+        if (flipHorizontal) {
+            canvas.scale(-1, 1, width / 2, height / 2);
+        }
+
         baselineGrid.draw(canvas, density, width, height);
+
+        // Unflip (is that even a word)
+        if (flipHorizontal) {
+            canvas.scale(-1, 1, width / 2, height / 2);
+        }
     }
 
     private void drawKeylines(List<Keyline> keylines, Canvas canvas, int width, int height) {
