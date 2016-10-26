@@ -153,9 +153,9 @@ public class Keylines {
 
             @Override
             public void onActivityStopped(Activity activity) {
-                int activitiesInStack = activityCounter.decrementAndGet();
+                int liveActivities = activityCounter.decrementAndGet();
 
-                if (activitiesInStack == 0) {
+                if (liveActivities == 0) {
                     application.sendBroadcast(new Intent(ACTION_STOP));
                 }
             }
