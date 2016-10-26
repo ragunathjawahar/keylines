@@ -21,9 +21,15 @@ android {
     }
 }
 
+ext {
+    supportLibVersion = '25.0.0'
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-annotations:25.0.0'
+    provided "com.android.support:support-annotations:$supportLibVersion"
+    provided "com.android.support:support-v4:$supportLibVersion"
+
+    // Testing
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
