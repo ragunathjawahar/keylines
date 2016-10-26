@@ -142,7 +142,7 @@ public class KeylinesService extends Service {
     }
 
     void flipVertical(boolean flip) {
-        // TODO 25/10/16 Flip
+        specDrawable.flipVertical(flip);
     }
 
     void visible(boolean visible) {

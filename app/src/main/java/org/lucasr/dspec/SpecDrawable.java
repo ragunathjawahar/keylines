@@ -34,12 +34,18 @@ import java.util.List;
  */
 public class SpecDrawable extends Drawable {
 
+    // Attributes
     private int width, height;
     private float density;
     private Spec spec;
 
+    /**
+     * Defaults as in {@link com.mobsandgeeks.keylines.NotificationBroadcastReceiver}.
+     */
     private boolean showGrid = true;
     private boolean flipHorizontal = false;
+    private boolean flipVertical = false;
+
     public SpecDrawable(Resources resources) {
         this.density = resources.getDisplayMetrics().density;
     }
@@ -107,6 +113,11 @@ public class SpecDrawable extends Drawable {
         invalidateSelf();
     }
 
+    public void flipVertical(boolean flip) {
+        this.flipVertical = flip;
+        invalidateSelf();
+    }
+
     private void setColors(@Nullable Spec spec) {
         if (spec == null) {
             return;
@@ -134,7 +145,11 @@ public class SpecDrawable extends Drawable {
         canvas.save();
 
         if (flipHorizontal) { // Flip H
-            canvas.scale(-1, 1, width / 2, height / 2);
+            canvas.scale(-1, 1, width / 2, 0);
+        }
+
+        if (flipVertical) { // Flip V
+            canvas.scale(1, -1, 0, height / 2);
         }
 
         baselineGrid.draw(canvas, density, width, height);
