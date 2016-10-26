@@ -30,6 +30,9 @@ import java.util.List;
  */
 class EmailsRepo {
 
+    /**
+     * DO NOT DO THIS, EVER! IO ops on the main thread.
+     */
     static List<Email> getEmails(Context context) {
         List<Email> emails = new ArrayList<>();
         BufferedReader bufferedReader = null;
