@@ -29,5 +29,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DesignSpec {
-    @RawRes int value() default -1;
+    @RawRes int value();
 }

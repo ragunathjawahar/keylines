@@ -29,5 +29,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
 public @interface DesignSpec {
-    int value() default -1;
+    int value();
 }
