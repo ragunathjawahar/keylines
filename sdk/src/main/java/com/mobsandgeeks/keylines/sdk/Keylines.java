@@ -67,20 +67,21 @@ class Keylines {
      *         and send specs to the Keylines app. This is the <bold>primary</bold> purpose.
      *     </li>
      *     <li>
-     *         Send terminal notifications to the Keylines app if the user exits the app.
+     *         Send terminal notifications to the Keylines app if the app goes to
+     *         background or quits.
      *     </li>
      * </ol>
      *
      * However, there are caveats while sending terminal notifications. This is a fairly naive
-     * implementation which fails spectacularly in several cases. Some of them are listed.
+     * implementation which fails spectacularly in a few cases. Some of them are listed.
+     *
      * <ul>
-     *     <li>An intent clears the backstack when launching an Activity.</li>
      *     <li>The app crashes or is killed.</li>
-     *     <li>An activity goes to the background and there .</li>
+     *     <li>For some reason, the Activity lifecycle callbacks aren't invoked as expected.</li>
      * </ul>
      *
-     * The second purpose is solved only in the ideal world. (i.e) User navigates throught the app
-     * and dutifully exits it by popping all the activities out of the backstack using the back
+     * The second purpose is solved mostly in the ideal cases. (i.e) User navigates through the app
+     * and dutifully exits by popping all the activities out of the back-stack using the back
      * button.
      *
      * @param application The {@link Application} instance of the host application.
