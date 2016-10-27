@@ -23,9 +23,9 @@ allprojects {
 **2. In the** **`build.gradle`** **of your module,**
 ```gradle
  dependencies {
-   debugCompile   'com.github.ragunathjawahar.keylines:sdk:0.1-alpha'
-   releaseCompile 'com.github.ragunathjawahar.keylines:sdk-no-op:0.1-alpha'
-   testCompile    'com.github.ragunathjawahar.keylines:sdk-no-op:0.1-alpha'
+   debugCompile   'com.github.ragunathjawahar.keylines:sdk:0.1-preview'
+   releaseCompile 'com.github.ragunathjawahar.keylines:sdk-no-op:0.1-preview'
+   testCompile    'com.github.ragunathjawahar.keylines:sdk-no-op:0.1-preview'
  }
 ```
 
