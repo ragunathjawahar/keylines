@@ -13,7 +13,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 22 // Shying away from runtime permissions
         versionCode 1
-        versionName "0.1"
+        versionName "0.1-preview"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
