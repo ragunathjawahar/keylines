@@ -167,18 +167,26 @@ public class Keylines {
         });
     }
 
-    private void showSpec(Context context, Class<?> hostClass) {
-        DesignSpec designSpec = hostClass.getAnnotation(DesignSpec.class);
-        if (designSpec != null) {
-            String jsonSpec = getJsonSpec(hostClass.getName(), designSpec.value()); // TODO 26/10/16 Validate JSON
-            if (jsonSpec != null) {
-                send(context, jsonSpec);
-            }
-        } else {
+    private void showSpec(final Context context, final Class<?> hostClass) {
+        final DesignSpec designSpec = hostClass.getAnnotation(DesignSpec.class);
+        if (designSpec == null) {
             String message = String.format("%s is not annotated with @%s",
                     hostClass.getName(), DesignSpec.class.getSimpleName());
             Log.i(TAG, message);
+            return;
         }
+
+        // IO on a different thread
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                String jsonSpec = getJsonSpec(hostClass.getName(), designSpec.value()); // TODO 26/10/16 Validate JSON
+                if (jsonSpec != null) {
+                    send(context, jsonSpec);
+                } // TODO 28/10/16 Log a warning
+            }
+        }).start();
     }
 
     @Nullable
