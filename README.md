@@ -6,7 +6,7 @@ Painlessly build and ship apps that conform to the [Material design specificatio
 ## The Tool
 The tool is split into two,
 
-1. **Keylines** - Install this Android app first. It renders and controls design specs on the screen.
+1. **Keylines** - [Download](https://github.com/ragunathjawahar/keylines/releases) and install this Android app first. It renders and controls design specs on the screen.
 2. **SDK** - Integrated into the app, sends specifications to the **Keylines** app for rendering.
 
 ## SDK Quick Start
