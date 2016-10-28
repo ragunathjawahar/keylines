@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Keylines Demo</string>
-    <string name="email">Inbox</string>
+    <string name="inbox">Inbox</string>
 </resources>

@@ -38,7 +38,7 @@ public class EmailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emails);
-        setTitle(R.string.email);
+        setTitle(R.string.inbox);
 
         setupEmailsRecyclerView();
         setupFab();
