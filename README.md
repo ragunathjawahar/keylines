@@ -6,8 +6,8 @@ Painlessly build and ship apps that conform to the [Material design specificatio
 ## The Tool
 The tool is split into two,
 
-1. **Keylines** - Install this Android app first. It is responsible for rendering and controlling design specifications on the screen.
-2. **SDK** - Integrated into the app. It communicates with the **Keylines** app to render defined specifications.
+1. **Keylines** - Install this Android app first. It renders and controls design specs on the screen.
+2. **SDK** - Integrated into the app, sends specifications to the **Keylines** app for rendering.
 
 ## SDK Quick Start
 
@@ -31,7 +31,7 @@ allprojects {
 
 **3. Write a design specification.**
 
-The spec files go into the **`res/raw`** folder. For instance, **`res/raw/activity_emails.spec`**
+The specs are written in JSON and they go into the **`res/raw`** folder. For instance, **`res/raw/activity_emails.spec`**
 ```json
 {
   "keylines": [
