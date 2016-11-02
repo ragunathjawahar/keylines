@@ -28,9 +28,14 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.mobsandgeeks.keylines.sdk.Shared.NAMESPACE_ACTION;
@@ -184,7 +189,7 @@ public class Keylines {
 
             @Override
             public void run() {
-                String jsonSpec = getJsonSpec(hostClass, design.value()); // TODO 26/10/16 Validate spec
+                String jsonSpec = getMergedJsonSpec(hostClass, design.value()); // TODO 26/10/16 Validate spec
                 if (jsonSpec != null) {
                     send(context, jsonSpec);
                 } // TODO 28/10/16 Log a warning
@@ -192,8 +197,23 @@ public class Keylines {
         }).start();
     }
 
+    private String getMergedJsonSpec(Class<?> hostClass, @RawRes int[] specResourceIds) {
+        JSONObject mergedJsonSpec = new JSONObject();
+
+        // noinspection ForLoopReplaceableByForEach
+        for (int i = 0; i < specResourceIds.length; i++) {
+            int specResourceId = specResourceIds[i];
+            JSONObject jsonSpec = getJsonSpec(hostClass, specResourceId);
+            if (jsonSpec != null) {
+                mergeJsonObjects(jsonSpec, mergedJsonSpec);
+            }
+        }
+
+        return mergedJsonSpec.toString();
+    }
+
     @Nullable
-    private String getJsonSpec(Class<?> hostClass, @RawRes int specResourceId) {
+    private JSONObject getJsonSpec(Class<?> hostClass, @RawRes int specResourceId) {
         StringBuilder stringBuilder = new StringBuilder();
 
         BufferedReader reader = null;
@@ -207,21 +227,53 @@ public class Keylines {
                 stringBuilder.append(line);
             }
 
+            return new JSONObject(stringBuilder.toString());
         } catch (Resources.NotFoundException e) {
             @SuppressLint("DefaultLocale") String message = String.format(
-                    "Unable to find RAW resource with ID: %d for %s", specResourceId, hostClass.getName()
+                    "Unable to find RAW resource with ID %d for %s", specResourceId, hostClass.getName()
             );
             Log.e(TAG,  message);
-            return null;
+            e.printStackTrace();
 
         } catch (IOException e) {
+            e.printStackTrace();
+
+        } catch (JSONException e) {
+            String message = String.format(
+                    "Unable to create JSON from resource %s for %s", specResourceId, hostClass.getName()
+            );
+            Log.e(TAG, message);
             e.printStackTrace();
 
         } finally {
             try { if (reader != null) { reader.close(); } } catch (IOException ignored) {}
         }
 
-        return stringBuilder.toString();
+        return null;
+    }
+
+    private void mergeJsonObjects(JSONObject inJsonObject, JSONObject outJsonObject) {
+        Iterator<String> keys = inJsonObject.keys();
+        String key;
+        while (keys.hasNext()) {
+            key = keys.next();
+            try {
+                JSONArray inJsonArray = inJsonObject.optJSONArray(key);
+                JSONArray outJsonArray = outJsonObject.optJSONArray(key);
+
+                if (inJsonArray != null && inJsonArray.length() > 0) {
+                    outJsonArray = outJsonArray == null ? new JSONArray() : outJsonArray;
+                    for (int i = 0, n = inJsonArray.length(); i < n; i++) {
+                        outJsonArray.put(inJsonArray.get(i));
+                    }
+                }
+
+                outJsonObject.put(key, outJsonArray);
+            } catch (JSONException e) {
+                Log.e(TAG, "Error when reading JSON.");
+                e.printStackTrace();
+            }
+        }
     }
 
     private void send(Context context, String spec) {
