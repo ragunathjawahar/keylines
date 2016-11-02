@@ -184,7 +184,7 @@ public class Keylines {
 
             @Override
             public void run() {
-                String jsonSpec = getJsonSpec(hostClass.getName(), design.value()); // TODO 26/10/16 Validate spec
+                String jsonSpec = getJsonSpec(hostClass, design.value()); // TODO 26/10/16 Validate spec
                 if (jsonSpec != null) {
                     send(context, jsonSpec);
                 } // TODO 28/10/16 Log a warning
@@ -193,7 +193,7 @@ public class Keylines {
     }
 
     @Nullable
-    private String getJsonSpec(String activity, @RawRes int specResourceId) {
+    private String getJsonSpec(Class<?> hostClass, @RawRes int specResourceId) {
         StringBuilder stringBuilder = new StringBuilder();
 
         BufferedReader reader = null;
@@ -209,7 +209,7 @@ public class Keylines {
 
         } catch (Resources.NotFoundException e) {
             @SuppressLint("DefaultLocale") String message = String.format(
-                    "Unable to find RAW resource with ID: %d for %s", specResourceId, activity
+                    "Unable to find RAW resource with ID: %d for %s", specResourceId, hostClass.getName()
             );
             Log.e(TAG,  message);
             return null;
