@@ -3,19 +3,19 @@ apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion '25.0.0'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        applicationId "com.mobsandgeeks.keylines"
+        applicationId 'com.mobsandgeeks.keylines'
         minSdkVersion 14
         targetSdkVersion 22 // Shying away from runtime permissions
         versionCode 1
-        versionName "0.1-preview"
+        versionName '0.1-preview'
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
