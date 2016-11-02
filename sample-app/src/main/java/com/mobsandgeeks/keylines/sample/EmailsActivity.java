@@ -24,14 +24,14 @@ import android.support.v7.widget.AppCompatDrawableManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.mobsandgeeks.keylines.sdk.DesignSpec;
+import com.mobsandgeeks.keylines.sdk.Design;
 
 import static com.mobsandgeeks.keylines.sample.EmailsRepo.getEmails;
 
 /**
  * @author Ragunath Jawahar
  */
-@DesignSpec(R.raw.activity_emails)
+@Design(R.raw.activity_emails)
 public class EmailsActivity extends AppCompatActivity {
 
     @Override

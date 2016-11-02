@@ -63,25 +63,28 @@ public class Keylines {
      *
      * @return An initialized {@link Keylines} instance.
      */
+    @SuppressWarnings("WeakerAccess")
     public static Keylines getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
     /**
-     * Specs a {@link Fragment}, if annotated with the {@link DesignSpec} annotation.
+     * Specs a {@link Fragment}, if annotated with the {@link Design} annotation.
      *
      * @param fragment A fragment.
      */
+    @SuppressWarnings("unused")
     public void spec(@NonNull Fragment fragment) {
         spec(fragment.getActivity(), fragment);
     }
 
     /**
-     * Specs a {@link android.support.v4.app.Fragment}, if annotated with the {@link DesignSpec}
+     * Specs a {@link android.support.v4.app.Fragment}, if annotated with the {@link Design}
      * annotation.
      *
      * @param supportFragment A fragment.
      */
+    @SuppressWarnings("unused")
     public void spec(@NonNull android.support.v4.app.Fragment supportFragment) {
         spec(supportFragment.getActivity(), supportFragment);
     }
@@ -118,7 +121,7 @@ public class Keylines {
      *
      * <ol>
      *     <li>
-     *         Automatically get {@link DesignSpec} annotations from any started {@link Activity}
+     *         Automatically get {@link Design} annotations from any started {@link Activity}
      *         and send specs to the Keylines app. This is the <bold>primary</bold> purpose.
      *     </li>
      *     <li>
@@ -168,10 +171,10 @@ public class Keylines {
     }
 
     private void showSpec(final Context context, final Class<?> hostClass) {
-        final DesignSpec designSpec = hostClass.getAnnotation(DesignSpec.class);
-        if (designSpec == null) {
+        final Design design = hostClass.getAnnotation(Design.class);
+        if (design == null) {
             String message = String.format("%s is not annotated with @%s",
-                    hostClass.getName(), DesignSpec.class.getSimpleName());
+                    hostClass.getName(), Design.class.getSimpleName());
             Log.i(TAG, message);
             return;
         }
@@ -181,7 +184,7 @@ public class Keylines {
 
             @Override
             public void run() {
-                String jsonSpec = getJsonSpec(hostClass.getName(), designSpec.value()); // TODO 26/10/16 Validate JSON
+                String jsonSpec = getJsonSpec(hostClass.getName(), design.value()); // TODO 26/10/16 Validate spec
                 if (jsonSpec != null) {
                     send(context, jsonSpec);
                 } // TODO 28/10/16 Log a warning

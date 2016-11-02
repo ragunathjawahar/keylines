@@ -22,6 +22,7 @@ import android.support.annotation.NonNull;
 /**
  * @author Ragunath Jawahar
  */
+@SuppressWarnings("unused")
 public class Keylines {
 
     /**

@@ -28,6 +28,6 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DesignSpec {
+public @interface Design {
     @RawRes int value();
 }
