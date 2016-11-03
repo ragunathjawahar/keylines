@@ -54,6 +54,7 @@ public class SpecParser {
     private static final String KEY_OFFSET = "offset";
     private static final String KEY_SIZE = "size";
     private static final String KEY_FROM = "from";
+    private static final String KEY_LABEL = "label";
 
     // Value functions
     private static final JSONFunction<Integer> INT_FUNCTION = JSONObject::getInt;
@@ -67,7 +68,8 @@ public class SpecParser {
         try {
             int offset = keyline.getInt(KEY_OFFSET);
             From from = From.valueOf(keyline.getString(KEY_FROM).toUpperCase());
-            return new Keyline(offset, from);
+            String label = keyline.getString(KEY_LABEL);
+            return new Keyline(offset, from, label);
         } catch (JSONException e) {
             e.printStackTrace();
         }

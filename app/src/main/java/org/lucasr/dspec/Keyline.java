@@ -51,13 +51,15 @@ class Keyline implements SpecElement {
         PAINT.setAlpha(alpha);
     }
 
-    Keyline(float position, From from) {
-        this.position = position;
-        this.from = from;
-    }
-
     private final float position;
     private final From from;
+    private final String label;
+
+    Keyline(float position, From from, String label) {
+        this.position = position;
+        this.from = from;
+        this.label = label;
+    }
 
     @Override
     public void draw(Canvas canvas, float density, int width, int height) {
@@ -115,7 +117,8 @@ class Keyline implements SpecElement {
         }
 
         final Keyline other = (Keyline) o;
-        return this.position == other.position && this.from == other.from;
+        return this.position == other.position && this.from == other.from
+                && this.label == other.label;
     }
 
 }
