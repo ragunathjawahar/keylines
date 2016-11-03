@@ -9,7 +9,6 @@
         android:id="@+id/emailsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/list_padding_top"
         android:clipToPadding="false"
         tools:listitem="@layout/list_item_email" />
 

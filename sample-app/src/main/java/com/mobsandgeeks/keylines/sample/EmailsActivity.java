@@ -31,7 +31,7 @@ import static com.mobsandgeeks.keylines.sample.EmailsRepo.getEmails;
 /**
  * @author Ragunath Jawahar
  */
-@Design(R.raw.activity_emails)
+@Design({ R.raw.spec_list, R.raw.spec_list_item_three_line_avatar, R.raw.spec_fab })
 public class EmailsActivity extends AppCompatActivity {
 
     @Override
