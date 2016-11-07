@@ -74,7 +74,7 @@ public class Keylines {
     }
 
     /**
-     * Specs a {@link Fragment}, if annotated with the {@link Design} annotation.
+     * Specs a {@link Fragment}, if annotated with the {@link DesignSpec} annotation.
      *
      * @param fragment A fragment.
      */
@@ -84,7 +84,7 @@ public class Keylines {
     }
 
     /**
-     * Specs a {@link android.support.v4.app.Fragment}, if annotated with the {@link Design}
+     * Specs a {@link android.support.v4.app.Fragment}, if annotated with the {@link DesignSpec}
      * annotation.
      *
      * @param supportFragment A fragment.
@@ -126,7 +126,7 @@ public class Keylines {
      *
      * <ol>
      *     <li>
-     *         Automatically get {@link Design} annotations from any started {@link Activity}
+     *         Automatically get {@link DesignSpec} annotations from any started {@link Activity}
      *         and send specs to the Keylines app. This is the <bold>primary</bold> purpose.
      *     </li>
      *     <li>
@@ -176,10 +176,10 @@ public class Keylines {
     }
 
     private void showSpec(final Context context, final Class<?> hostClass) {
-        final Design design = hostClass.getAnnotation(Design.class);
-        if (design == null) {
+        final DesignSpec designSpec = hostClass.getAnnotation(DesignSpec.class);
+        if (designSpec == null) {
             String message = String.format("%s is not annotated with @%s",
-                    hostClass.getName(), Design.class.getSimpleName());
+                    hostClass.getName(), DesignSpec.class.getSimpleName());
             Log.i(TAG, message);
             return;
         }
@@ -189,7 +189,7 @@ public class Keylines {
 
             @Override
             public void run() {
-                String jsonSpec = getMergedJsonSpec(hostClass, design.value()); // TODO 26/10/16 Validate spec
+                String jsonSpec = getMergedJsonSpec(hostClass, designSpec.value()); // TODO 26/10/16 Validate spec
                 if (jsonSpec != null) {
                     send(context, jsonSpec);
                 } // TODO 28/10/16 Log a warning

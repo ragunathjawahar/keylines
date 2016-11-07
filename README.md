@@ -34,16 +34,16 @@ allprojects {
 The SDK comes with a set of built-in specifications for standard Material design components. You can pick the ones you are interested in. Nothing stops you from writing your own specs if required.
 
 ````java
-@Design({ R.raw.spec_list, R.raw.spec_list_item_three_line_avatar, R.raw.spec_fab })
+@DesignSpec({ R.raw.spec_list, R.raw.spec_list_item_three_line_avatar, R.raw.spec_fab })
 public class EmailsActivity extends AppCompatActivity {
     // ...
 }
 ````
-Just add the `@Design` annotation to your `Activity` classes.
+Just add the `@DesignSpec` annotation to your `Activity` classes.
 
 **4. In your Fragment,**
 ````java
-@Design({ R.raw.spec_list, R.raw.spec_list_item_three_line_avatar, R.raw.spec_fab })
+@DesignSpec({ R.raw.spec_list, R.raw.spec_list_item_three_line_avatar, R.raw.spec_fab })
 public class EmailDetailFragment extends Fragment {
     // ...
 
